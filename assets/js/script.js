@@ -44,3 +44,38 @@ window.addEventListener("scroll", function () {
   }
 
 });
+ // Toggle card active on click/tap, but don't toggle when clicking a button inside the card.
+  (function () {
+    const cards = Array.from(document.querySelectorAll('.flip-card'));
+
+    cards.forEach(card => {
+      // make click toggle (mobile & desktop)
+      card.addEventListener('click', (ev) => {
+        // if clicked inside .card-actions (buttons) — do nothing (let buttons work)
+        if (ev.target.closest('.card-actions')) return;
+
+        // toggle active on clicked card, close others
+        if (card.classList.contains('active')) {
+          card.classList.remove('active');
+          card.setAttribute('aria-pressed','false');
+        } else {
+          cards.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-pressed','false'); });
+          card.classList.add('active');
+          card.setAttribute('aria-pressed','true');
+        }
+      });
+
+      // keyboard support: Enter or Space toggles
+      card.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          card.click();
+        }
+      });
+
+      // prevent button clicks from bubbling up (just an extra defensive measure)
+      card.querySelectorAll('.card-actions button').forEach(btn => {
+        btn.addEventListener('click', (e) => e.stopPropagation());
+      });
+    });
+  })();
