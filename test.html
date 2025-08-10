@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Packages — Flip 80/20</title>
+<style>
+  :root{
+    --accent:#144c63;
+    --accent-2:#f4a435;
+    --card-bg:#ffffff;
+    --muted:#f8f8f8;
+    --radius:12px;
+  }
+
+  body{font-family:Inter,system-ui,Segoe UI,Roboto,'Poppins',sans-serif; margin:0; background:#fafafa; color:#222;}
+  .container{max-width:1150px; margin:0 auto; padding:28px;}
+
+  .section-subtitle{color:var(--accent-2); text-transform:uppercase; font-weight:700; font-size:13px; margin-bottom:8px;}
+  .section-title{font-size:28px; margin:0 0 12px;}
+  .section-text{color:#555; margin-bottom:18px; max-width:780px;}
+
+  /* grid */
+  .package-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+  }
+  @media (max-width:1024px){
+    .package-grid{ grid-template-columns:1fr; }
+  }
+
+  /* flip-card (common) */
+  .flip-card{
+    display:flex;
+    flex-direction:column;
+    height:420px;               /* fixed height for smooth swap */
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:var(--card-bg);
+    box-shadow:0 6px 20px rgba(0,0,0,0.06);
+    transition:transform .25s ease, box-shadow .25s ease;
+    cursor:pointer;
+    outline: none;
+  }
+  .flip-card:focus-visible{
+    box-shadow:0 8px 28px rgba(20,76,99,0.18);
+  }
+  .flip-card:hover{ transform:translateY(-6px); box-shadow:0 12px 30px rgba(0,0,0,0.08); }
+
+  /* 80% image / 20% content default */
+  .flip-card .card-image{
+    flex-basis:80%;
+    transition:flex-basis .36s cubic-bezier(.2,.9,.25,1);
+    min-height:0; /* ensure flex works in some browsers */
+    overflow:hidden;
+    background:#ddd;
+  }
+  .flip-card .card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transform-origin:center;
+    transition: transform .36s ease;
+  }
+
+  .flip-card .card-content{
+    flex-basis:20%;
+    transition:flex-basis .36s cubic-bezier(.2,.9,.25,1);
+    padding:16px;
+    background:var(--muted);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:10px;
+  }
+
+  /* hover/active => 20% image / 80% content */
+  .flip-card:hover .card-image,
+  .flip-card.active .card-image{
+    flex-basis:20%;
+  }
+  .flip-card:hover .card-content,
+  .flip-card.active .card-content{
+    flex-basis:80%;
+  }
+
+  /* small visual tweaks inside content */
+  .card-content h3{ margin:0 0 6px; font-size:18px; }
+  .card-content p{ margin:0; color:#444; line-height:1.45; font-size:14px; }
+
+  .card-actions{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; }
+  .card-actions .btn{
+    border:0; padding:8px 14px; border-radius:8px; font-weight:600; cursor:pointer;
+  }
+  .btn-primary{ background:var(--accent); color:#fff; }
+  .btn-secondary{ background:var(--accent-2); color:#fff; }
+
+  /* subtle image zoom when content expands */
+  .flip-card.active .card-image img,
+  .flip-card:hover .card-image img{
+    transform:scale(1.02);
+  }
+
+  /* Mobile: make height slightly smaller */
+  @media (max-width:600px){
+    .flip-card{ height:360px; }
+  }
+
+  /* ensure buttons don't trigger toggling when clicked */
+  .card-actions button{ -webkit-tap-highlight-color:transparent; }
+</style>
+</head>
+<body>
+
+<section class="package" id="package">
+  <div class="container">
+    <p class="section-subtitle">Popular Packages</p>
+    <h2 class="section-title">Handpicked Journeys for Every Kind of Soul</h2>
+    <p class="section-text">Explore romantic escapes, cultural immersions, family adventures, and luxury retreats. Tap a card to reveal full details.</p>
+
+    <div class="package-grid">
+      <!-- Bali -->
+      <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+        <div class="card-image">
+          <img src="images/bali/Bali Honeymoon Escape 1.webp" alt="Bali Honeymoon">
+        </div>
+        <div class="card-content">
+          <h3>Bali Honeymoon Escape – 6N/7D</h3>
+          <p>Perfect for couples seeking romance, relaxation & indulgence. Destinations: Ubud, Nusa Penida, Seminyak.</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary"
+              onclick="window.open('https://wa.me/917736333004?text=Hi%20Infizen%20Adventures,%20I%20am%20interested%20in%20the%20Bali%20Honeymoon%20Escape.', '_blank')">Book Now</button>
+            <button class="btn btn-primary" onclick="window.location.href='/Bali.html'">View All</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vietnam -->
+      <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+        <div class="card-image">
+          <img src="images/vietnam/Romantic Vietnam 1.webp" alt="Romantic Vietnam">
+        </div>
+        <div class="card-content">
+          <h3>Romantic Vietnam – 8N/7D</h3>
+          <p>Perfect for honeymooners & couples. Destinations: Hanoi, Ninh Binh, Ha Long Bay, Hoi An.</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary"
+              onclick="window.open('https://wa.me/917736333004?text=Hi%20Infizen%20Adventures,%20I%20am%20interested%20in%20the%20Romantic%20Vietnam%20package.', '_blank')">Book Now</button>
+            <button class="btn btn-primary" onclick="window.location.href='/Vietnam.html'">View All</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cambodia -->
+      <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+        <div class="card-image">
+          <img src="images/cambodia/Cambodia Family Explorer 1.webp" alt="Cambodia Family Explorer">
+        </div>
+        <div class="card-content">
+          <h3>Cambodia Family Explorer – 7N</h3>
+          <p>Families seeking culture & adventure. Destinations: Siem Reap, Battambang, Phnom Penh.</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary"
+              onclick="window.open('https://wa.me/917736333004?text=Hi%20Infizen%20Adventures,%20I%20am%20interested%20in%20the%20Cambodia%20Family%20Explorer.', '_blank')">Book Now</button>
+            <button class="btn btn-primary" onclick="window.location.href='/Cambodia.html'">View All</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Maldives -->
+      <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+        <div class="card-image">
+          <img src="images/maldives/Maldives Family Escape (1).webp" alt="Maldives Family Escape">
+        </div>
+        <div class="card-content">
+          <h3>Maldives Family Escape – 6N/5D</h3>
+          <p>Fun, safety & comfort. Destinations: Sun Siyam Olhuveli, Bandos.</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary"
+              onclick="window.open('https://wa.me/917736333004?text=Hi%20Infizen%20Adventures,%20I%20am%20interested%20in%20the%20Maldives%20Family%20Escape.', '_blank')">Book Now</button>
+            <button class="btn btn-primary" onclick="window.location.href='/Maldives.html'">View All</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Toggle card active on click/tap, but don't toggle when clicking a button inside the card.
+  (function () {
+    const cards = Array.from(document.querySelectorAll('.flip-card'));
+
+    cards.forEach(card => {
+      // make click toggle (mobile & desktop)
+      card.addEventListener('click', (ev) => {
+        // if clicked inside .card-actions (buttons) — do nothing (let buttons work)
+        if (ev.target.closest('.card-actions')) return;
+
+        // toggle active on clicked card, close others
+        if (card.classList.contains('active')) {
+          card.classList.remove('active');
+          card.setAttribute('aria-pressed','false');
+        } else {
+          cards.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-pressed','false'); });
+          card.classList.add('active');
+          card.setAttribute('aria-pressed','true');
+        }
+      });
+
+      // keyboard support: Enter or Space toggles
+      card.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          card.click();
+        }
+      });
+
+      // prevent button clicks from bubbling up (just an extra defensive measure)
+      card.querySelectorAll('.card-actions button').forEach(btn => {
+        btn.addEventListener('click', (e) => e.stopPropagation());
+      });
+    });
+  })();
+</script>
+</body>
+</html>
