@@ -162,7 +162,7 @@
 
         </nav>
 
-        <button class="neon-btn">Book Now</button>
+        <button class="btn-white">Book Now</button>
 
       </div>
     </div>
@@ -176,58 +176,65 @@
   <main>
     <article>
 
-      <!-- 
-        - #HERO
-      -->
-      <section class="hero" id="home">
-        <div id="vanta-bg"></div> <!-- Vanta overlay -->
-        <div class="container">
-          <h2 class="animated-headline">Transform Your Journey</h2>
-          <h2 class="animated-subline">Customize Your Trip</h2>
-          <p class="hero-text">Luxury, culture, and wellness in every step — handpicked adventures across 
-            Bali, Vietnam, Cambodia, and Maldives.</p>
-          <div class="btn-group">
-            <button class="slide-btn">Explore Destinations</button>
-            <button class="neon-btn">Book now</button>
-          </div>
-        </div>
-      </section>
-      <section class="tour-search">
-        <div class="container">
+  <!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
 
-          <form action="" class="tour-search-form">
+  <div class="container hero-content">
+    <h1 class="hero-title animate-slide">
+      <span class="title-line">Transform Your Journey</span>
+      <span class="title-line hero-subtitle animate-slide-delay">Customize Your Trip</span>
+    </h1>
 
-            <div class="input-wrapper">
-              <label for="destination" class="input-label">Search Destination*</label>
+    <p class="hero-text animate-fade">
+      Luxury, culture, and wellness in every step — handpicked adventures across
+      Bali, Vietnam, Cambodia, and Maldives.
+    </p>
 
-              <input type="text" name="destination" id="destination" required placeholder="Enter Destination"
-                class="input-field">
-            </div>
+    <div class="btn-group animate-fade-delay">
+      <a href="#destinations" class="btn-white">Explore Destinations</a>
+      <a href="#booking" class="btn-white">Book Now</a>
+    </div>
+  </div>
+</section>
 
-            <div class="input-wrapper">
-              <label for="people" class="input-label">Pax Number*</label>
+<!-- TOUR SEARCH -->
+<section class="tour-search">
+  <div class="container">
+    <form class="tour-search-form" role="search" aria-label="Tour search form">
+      <div>
+        <label for="destination" class="input-label">Search Destination*</label>
+        <select id="destination" name="destination" required class="input-field">
+          <option value="" disabled selected>Select destination</option>
+          <option value="bali">Bali</option>
+          <option value="Vietnam">Vietnam</option>
+          <option value="Cambodia">Cambodia</option>
+          <option value="Maldives">Maldives</option>
+        </select>
+      </div>
 
-              <input type="number" name="people" id="people" required placeholder="No.of People" class="input-field">
-            </div>
+      <div>
+        <label for="people" class="input-label">Pax Number*</label>
+        <input type="number" name="people" id="people" required placeholder="No. of People" class="input-field">
+      </div>
 
-            <div class="input-wrapper">
-              <label for="checkin" class="input-label">Checkin Date**</label>
+      <div>
+        <label for="checkin" class="input-label">Check-in Date*</label>
+        <input type="date" name="checkin" id="checkin" required class="input-field">
+      </div>
 
-              <input type="date" name="checkin" id="checkin" required class="input-field">
-            </div>
+      <div>
+        <label for="checkout" class="input-label">Check-out Date*</label>
+        <input type="date" name="checkout" id="checkout" required class="input-field">
+      </div>
 
-            <div class="input-wrapper">
-              <label for="checkout" class="input-label">Checkout Date*</label>
+      <button type="submit" class="btn btn-secondary">Inquire Now</button>
+    </form>
+  </div>
+</section>
 
-              <input type="date" name="checkout" id="checkout" required class="input-field">
-            </div>
 
-            <button type="submit" class="animated-btn">Inquire now</button>
-
-          </form>
-
-        </div>
-      </section>
+     
       <!-- 
         - #POPULAR
       -->
@@ -334,10 +341,10 @@
 
     <!-- Location Buttons -->
     <div class="popular-location-btn">
-      <button class="animated-btn" onclick="location.href='/Vietnam.html'">Vietnam</button>
-      <button class="animated-btn" onclick="location.href='/Cambodia.html'">Cambodia</button>
-      <button class="animated-btn" onclick="location.href='/Bali.html'">Bali</button>
-      <button class="animated-btn" onclick="location.href='/Maldives.html'">Maldives</button>
+      <button class="loc-btn" onclick="location.href='/Bali.html'">Bali</button>
+      <button class="loc-btn" onclick="location.href='/Vietnam.html'">Vietnam</button>
+      <button class="loc-btn" onclick="location.href='/Cambodia.html'">Cambodia</button>
+      <button class="loc-btn" onclick="location.href='/Maldives.html'">Maldives</button>
     </div>
   </div>
 </section>
@@ -401,7 +408,7 @@
       </ul>
 
       <!-- BUTTON -->
-      <button class="animated-btn" 
+      <button class="btn btn-secondary" 
       onclick="window.open('https://wa.me/917736333004?text=Hi%20Infizen%20Adventures,%20I%20am%20interested%20in%20your%20travel%20packages.', '_blank')">
         Contact Us
       </button>
@@ -430,9 +437,9 @@
               <h3>Bali Honeymoon Escape – 6N/7D</h3>
               <p>Perfect for couples seeking romance, relaxation & indulgence. Destinations: Ubud, Nusa Penida, Seminyak.</p>
               <div class="card-actions">
-                <button class="animated-btn"
+                <button class="btn btn-secondary"
                   onclick="window.open('https://wa.me/917736333004?text=Hi%20Infizen%20Adventures,%20I%20am%20interested%20in%20the%20Bali%20Honeymoon%20Escape.', '_blank')">Book Now</button>
-                <button class="neon-btn" onclick="window.location.href='/Bali.html'">View All</button>
+                <button class="btn btn-primary" onclick="window.location.href='/Bali.html'">View All</button>
               </div>
             </div>
           </div>
@@ -446,9 +453,9 @@
               <h3>Romantic Vietnam – 8N/7D</h3>
               <p>Perfect for honeymooners & couples. Destinations: Hanoi, Ninh Binh, Ha Long Bay, Hoi An.</p>
               <div class="card-actions">
-                <button class="animated-btn"
+                <button class="btn btn-secondary"
                   onclick="window.open('https://wa.me/917736333004?text=Hi%20Infizen%20Adventures,%20I%20am%20interested%20in%20the%20Romantic%20Vietnam%20package.', '_blank')">Book Now</button>
-                <button class="neon-btn" onclick="window.location.href='/Vietnam.html'">View All</button>
+                <button class="btn btn-primary" onclick="window.location.href='/Vietnam.html'">View All</button>
               </div>
             </div>
           </div>
@@ -462,9 +469,9 @@
               <h3>Cambodia Family Explorer – 7N</h3>
               <p>Families seeking culture & adventure. Destinations: Siem Reap, Battambang, Phnom Penh.</p>
               <div class="card-actions">
-                <button class="animated-btn"
+                <button class="btn btn-secondary"
                   onclick="window.open('https://wa.me/917736333004?text=Hi%20Infizen%20Adventures,%20I%20am%20interested%20in%20the%20Cambodia%20Family%20Explorer.', '_blank')">Book Now</button>
-                <button class="neon-btn" onclick="window.location.href='/Cambodia.html'">View All</button>
+                <button class="btn btn-primary" onclick="window.location.href='/Cambodia.html'">View All</button>
               </div>
             </div>
           </div>
@@ -478,9 +485,9 @@
               <h3>Maldives Family Escape – 6N/5D</h3>
               <p>Fun, safety & comfort. Destinations: Sun Siyam Olhuveli, Bandos.</p>
               <div class="card-actions">
-                <button class="animated-btn"
+                <button class="btn btn-secondary"
                   onclick="window.open('https://wa.me/917736333004?text=Hi%20Infizen%20Adventures,%20I%20am%20interested%20in%20the%20Maldives%20Family%20Escape.', '_blank')">Book Now</button>
-                <button class="neon-btn" onclick="window.location.href='/Maldives.html'">View All</button>
+                <button class="btn btn-primary" onclick="window.location.href='/Maldives.html'">View All</button>
               </div>
             </div>
           </div>
@@ -674,7 +681,7 @@
             </p>
           </div>
 
-          <button class="animated-btn">Contact Us !</button>
+          <button class="btn-white">Contact Us !</button>
 
         </div>
       </section>
@@ -747,7 +754,7 @@
           <form action="" class="form-wrapper">
             <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
 
-            <button type="submit" class="animated-btn">Subscribe</button>
+            <button type="submit" class="btn-white">Subscribe</button>
           </form>
 
         </div>
@@ -814,19 +821,4 @@
 </section>
 
 <script src="assets/js/script.js"></script>
-<!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
-<script>
-VANTA.BIRDS({
-  el: "#vanta-bg",
-  mouseControls: true,
-  touchControls: true,
-  backgroundAlpha: 0.00, // Transparent to see slideshow
-  color1: 0xff9900,
-  color2: 0x00ffcc
-});
-</script>
-</script>
-
 </html>
