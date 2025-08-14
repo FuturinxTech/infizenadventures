@@ -79,3 +79,13 @@ window.addEventListener("scroll", function () {
       });
     });
   })();
+/** * FAQ accordion
+ */
+// Select all FAQ question elements and add click event listeners to toggle the active class
+  document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+      const faqItem = button.parentElement;
+      faqItem.classList.toggle("active");
+    });
+  });
+
