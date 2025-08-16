@@ -1,315 +1,1201 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bali Tour Packages | Infizen Adventures</title>
-  <meta name="description" content="Infizen Adventures Bali tour packages offer luxury, family, wellness, and adventure travel experiences in Bali. Explore curated journeys across Ubud, Nusa Penida, Gili Islands, and more.">
-  <link rel="stylesheet" href="./assets/css/bali.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Infizen Adventures | Bali Tour Packages</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|DM+Serif+Display:700|Inter:400,600|Poppins:400,600|Open+Sans:400,600&display=swap" rel="stylesheet">
+  <!-- Icons (Font Awesome for social) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    :root {
+      --bg: #e9f0ef;
+      --gold: #f4a435;
+      --blue: #144c63;
+      --white: #fff;
+      --glass: rgba(233,240,239,0.7);
+      --glass-blur: blur(12px);
+      --serif: 'Playfair Display', 'DM Serif Display', serif;
+      --sans: 'Inter', 'Poppins', Arial, sans-serif;
+      --body: 'Open Sans', Arial, sans-serif;
+      --shadow: 0 4px 32px 0 rgba(20,76,99,0.08);
+      --radius: 1.2rem;
+      --transition: 0.4s cubic-bezier(.77,0,.18,1);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--blue);
+      font-family: var(--body);
+      scroll-behavior: smooth;
+    }
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 2.5vw;
+      background: var(--glass);
+      backdrop-filter: none;
+      transition: background 0.3s, backdrop-filter 0.3s;
+      box-shadow: none;
+    }
+    .navbar.scrolled {
+      background: var(--glass);
+      backdrop-filter: var(--glass-blur);
+      box-shadow: 0 2px 16px 0 rgba(20,76,99,0.07);
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .navbar .logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+    .navbar .brand {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--blue);
+    }
+    @media (max-width: 700px) {
+      .navbar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      }
+      .navbar > * {
+      margin-left: 0;
+      margin-right: 0;
+      }
+      .navbar .logo,
+      .navbar nav,
+      .navbar .hamburger {
+      margin-left: 0;
+      margin-right: 0;
+      }
+    }
+    .navbar nav {
+      display: flex;
+      gap: 2.2rem;
+      align-items: center;
+    }
+    .navbar nav a {
+      font-family: var(--sans);
+      font-size: 1.08rem;
+      color: var(--blue);
+      text-decoration: none;
+      position: relative;
+      padding: 0.2rem 0;
+      transition: color 0.2s;
+    }
+    .navbar nav a::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 0;
+      height: 2.5px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 0.3s var(--transition);
+    }
+    .navbar nav a:hover, .navbar nav a.active {
+      color: var(--gold);
+    }
+    .navbar nav a:hover::after, .navbar nav a.active::after {
+      width: 100%;
+    }
+    /* Hamburger */
+    .navbar .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 120;
+    }
+    .navbar .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--blue);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; right: 0;
+      width: 72vw;
+      max-width: 340px;
+      height: 100vh;
+      background: var(--blue);
+      box-shadow: -2px 0 24px 0 rgba(20,76,99,0.13);
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(.77,0,.18,1);
+      z-index: 110;
+      padding: 2.5rem 2rem;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+    .mobile-menu.open {
+      display: flex;
+      transform: translateX(0);
+    }
+    .mobile-menu nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .mobile-menu nav a {
+      color: var(--white);
+      font-size: 1.2rem;
+      font-family: var(--sans);
+      text-decoration: none;
+      position: relative;
+      padding: 0.2rem 0;
+    }
+    .mobile-menu nav a::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 0;
+      height: 2.5px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 0.3s var(--transition);
+    }
+    .mobile-menu nav a:hover::after, .mobile-menu nav a.active::after {
+      width: 100%;
+    }
+    .mobile-menu .close-btn {
+      position: absolute;
+      top: 1.2rem; right: 1.2rem;
+      font-size: 2rem;
+      color: var(--gold);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .hero video, .hero .hero-bgimg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      filter: brightness(0.85) saturate(1.1);
+    }
+    .hero .hero-bgimg {
+      display: none;
+    }
+    .hero .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(120deg,rgba(20,76,99,0.18) 0%,rgba(244,164,53,0.09) 100%);
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      color: var(--blue);
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem;
+    }
+    .hero-content h1 {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.1rem;
+      letter-spacing: 1px;
+      line-height: 1.15;
+      color: var(--blue);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeWave 1.2s 0.2s forwards;
+    }
+    .hero-content p {
+      font-family: var(--sans);
+      font-size: 1.25rem;
+      margin-bottom: 2.2rem;
+      color: var(--blue);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeWave 1.2s 0.5s forwards;
+    }
+    .hero-content .cta-btn {
+      font-family: var(--sans);
+      font-size: 1.15rem;
+      font-weight: 600;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: 2.5rem;
+      padding: 0.95rem 2.5rem;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: background 0.25s, transform 0.18s;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: bounceIn 1.1s 1s forwards;
+    }
+    .hero-content .cta-btn:hover {
+      background: var(--blue);
+      color: var(--gold);
+      transform: translateY(-3px) scale(1.04);
+    }
+    /* Tagline */
+    .tagline {
+      position: absolute;
+      top: 2.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      background: rgba(255,255,255,0.7);
+      padding: 0.3rem 1.2rem;
+      border-radius: 2rem;
+      z-index: 4;
+      box-shadow: 0 2px 12px 0 rgba(20,76,99,0.07);
+      font-weight: 700;
+      text-shadow: 0 1px 6px rgba(244,164,53,0.08);
+    }
+    /* Packages Section */
+    .section {
+      padding: 4.5rem 0 3.5rem 0;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--blue);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s;
+    }
+    .section-title.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .packages-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .packages-grid {
+      grid-template-columns: 1fr;
+      }
+    }
+    .package-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      min-height: 340px;
+      transition: box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+      will-change: transform;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s;
+    }
+    .package-card.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .package-card .card-img, .package-card .card-info {
+      transition: flex-basis 0.6s var(--transition), max-height 0.6s var(--transition);
+      will-change: flex-basis, max-height;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .package-card .card-img {
+      flex-basis: 80%;
+      background: #f7f7f7;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      max-width: 100%;
+      max-height: 340px;
+      height: 340px;
+      /* Ensure image area matches card height */
+    }
+    .package-card .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius) 0 0 var(--radius);
+      transition: transform 0.5s;
+      min-height: 340px;
+      max-height: 340px;
+      /* Image always fills card-img area */
+      display: block;
+    }
+    .package-card .card-info {
+      flex-basis: 20%;
+      padding: 1.5rem 1.2rem;
+      background: var(--bg);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: flex-basis 0.6s var(--transition), background 0.3s;
+      min-width: 0;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .package-card .card-info h3 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      color: var(--blue);
+      margin: 0 0 0.5rem 0;
+      font-weight: 700;
+    }
+    .package-card .card-info .meta {
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .package-card .card-info .desc {
+      font-size: 0.98rem;
+      color: #2d5b6e;
+      margin-bottom: 0.7rem;
+      font-family: var(--body);
+    }
+    .package-card .card-info ul {
+      margin: 0 0 0.7rem 1.1rem;
+      padding: 0;
+      font-size: 0.97rem;
+      color: #2d5b6e;
+      font-family: var(--body);
+    }
+    .package-card .card-info .price {
+      font-family: var(--sans);
+      font-size: 1.08rem;
+      color: var(--blue);
+      font-weight: 700;
+      margin-top: 0.7rem;
+    }
+    /* Card Hover/Touch Animation */
+    .package-card:hover .card-img,
+    .package-card:focus-within .card-img,
+    .package-card.active .card-img {
+      flex-basis: 20%;
+      max-height: 100px;
+      height: 100px;
+    }
+    .package-card:hover .card-info,
+    .package-card:focus-within .card-info,
+    .package-card.active .card-info {
+      flex-basis: 80%;
+      background: var(--white);
+    }
+    .package-card:hover .card-img img,
+    .package-card:focus-within .card-img img,
+    .package-card.active .card-img img {
+      transform: scale(1.08) rotate(-2deg);
+      border-radius: var(--radius);
+      min-height: 100px;
+      max-height: 100px;
+      height: 100px;
+    }
+    @media (max-width: 700px) {
+      .package-card {
+      flex-direction: column;
+      min-height: 0;
+      }
+      .package-card .card-img,
+      .package-card .card-info {
+      flex-basis: unset;
+      max-height: unset;
+      border-radius: 0;
+      }
+      .package-card .card-img {
+      min-height: 180px;
+      border-radius: var(--radius) var(--radius) 0 0;
+      max-height: 220px;
+      height: 220px;
+      }
+      .package-card .card-img img {
+      border-radius: var(--radius) var(--radius) 0 0;
+      min-height: 220px;
+      max-height: 220px;
+      height: 220px;
+      }
+      .package-card .card-info {
+      border-radius: 0 0 var(--radius) var(--radius);
+      padding: 1.2rem 1rem;
+      }
+      .package-card:hover .card-img,
+      .package-card:focus-within .card-img,
+      .package-card.active .card-img {
+      max-height: 80px;
+      height: 80px;
+      }
+      .package-card:hover .card-img img,
+      .package-card:focus-within .card-img img,
+      .package-card.active .card-img img {
+      min-height: 80px;
+      max-height: 80px;
+      height: 80px;
+      }
+    }
+    /* Gallery Section */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.4s, box-shadow 0.3s;
+      background: #f7f7f7;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 8px 32px 0 rgba(20,76,99,0.13);
+      z-index: 2;
+    }
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(20,76,99,0.85);
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      animation: fadeIn 0.4s;
+    }
+    .lightbox.open {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 32px 0 rgba(244,164,53,0.13);
+      animation: fadeIn 0.5s;
+    }
+    .lightbox .close-btn {
+      position: absolute;
+      top: 2.5rem; right: 2.5rem;
+      font-size: 2.2rem;
+      color: var(--gold);
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 210;
+    }
+    /* Contact Section */
+    .contact-section {
+      background: var(--bg);
+      padding: 4rem 0 2.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .contact-form {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.2rem 2rem;
+      min-width: 320px;
+      max-width: 420px;
+      flex: 1 1 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s;
+    }
+    .contact-form.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .contact-form label {
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      color: var(--blue);
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+    }
+    .contact-form input, .contact-form textarea {
+      font-family: var(--body);
+      font-size: 1rem;
+      padding: 0.7rem 1rem;
+      border: 1.5px solid #c9d7d6;
+      border-radius: 0.7rem;
+      background: #f7f7f7;
+      outline: none;
+      transition: border 0.2s;
+      resize: none;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border: 1.5px solid var(--gold);
+    }
+    .contact-form button {
+      font-family: var(--sans);
+      font-size: 1.08rem;
+      font-weight: 600;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: 2rem;
+      padding: 0.8rem 2.2rem;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.18s;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-form button:hover {
+      background: var(--blue);
+      color: var(--gold);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .contact-info {
+      flex: 1 1 220px;
+      min-width: 220px;
+      max-width: 320px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s;
+    }
+    .contact-info.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .contact-info h4 {
+      font-family: var(--serif);
+      font-size: 1.18rem;
+      color: var(--blue);
+      margin: 0 0 0.5rem 0;
+      font-weight: 700;
+    }
+    .contact-info .info {
+      font-family: var(--body);
+      font-size: 1.01rem;
+      color: #2d5b6e;
+      margin-bottom: 0.5rem;
+    }
+    .contact-info .socials {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 0.7rem;
+    }
+    .contact-info .socials a {
+      color: var(--gold);
+      font-size: 1.5rem;
+      transition: color 0.2s;
+    }
+    .contact-info .socials a:hover {
+      color: var(--blue);
+    }
+    /* Animations */
+    @keyframes fadeWave {
+      0% { opacity: 0; transform: translateY(40px) scale(0.98);}
+      60% { opacity: 1; transform: translateY(-8px) scale(1.04);}
+      100% { opacity: 1; transform: none;}
+    }
+    @keyframes bounceIn {
+      0% { opacity: 0; transform: scale(0.8);}
+      60% { opacity: 1; transform: scale(1.08);}
+      100% { opacity: 1; transform: scale(1);}
+    }
+    @keyframes fadeIn {
+      from { opacity: 0;}
+      to { opacity: 1;}
+    }
+    /* Scroll Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+    /* Ripple Button Effect */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      background: rgba(244,164,53,0.4);
+      pointer-events: none;
+      z-index: 10;
+    }
+    @keyframes ripple {
+      to {
+        transform: scale(2.5);
+        opacity: 0;
+      }
+    }
+    /* Responsive */
+    @media (max-width: 700px) {
+      .section, .contact-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .tagline {
+        font-size: 1rem;
+        padding: 0.2rem 0.7rem;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .section-title {
+        font-size: 1.4rem;
+      }
+    }
+    @media (max-width: 1100px) {
+
+    /* --- Custom Navbar Curved Design & Spacing --- */
+    .navbar {
+      border-radius: 1.5rem 1.5rem 0.7rem 0.7rem;
+      margin: 0.7rem 1.2vw 0 1.2vw;
+      box-shadow: 0 4px 24px 0 rgba(20,76,99,0.08);
+      background: var(--glass);
+      backdrop-filter: var(--glass-blur);
+    }
+    @media (max-width: 700px) {
+      .navbar {
+      border-radius: 1rem 1rem 0.5rem 0.5rem;
+      margin: 0.4rem 0.5vw 0 0.5vw;
+      padding: 0.7rem 0.7rem;
+      }
+    }
+      .section {
+        max-width: 98vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
+      }
+      .packages-grid {
+        gap: 1.5rem;
+      }
+    }
+    @media (max-width: 900px) {
+      .navbar nav.desktop-menu {
+        display: none;
+      }
+      .navbar .hamburger {
+        display: flex;
+      }
+      .mobile-menu {
+        display: none;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+    @media (max-width: 700px) {
+      .navbar {
+        padding: 0.7rem 1rem;
+      }
+      .navbar .logo img {
+        height: 38px;
+      }
+      .navbar .brand {
+        font-size: 1.1rem;
+      }
+      .hero-content {
+        padding: 1.2rem 0.2rem;
+        max-width: 98vw;
+      }
+      .hero-content h1 {
+        font-size: 1.3rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .hero-content .cta-btn {
+        font-size: 1rem;
+        padding: 0.7rem 1.3rem;
+      }
+      .tagline {
+        font-size: 0.95rem;
+        padding: 0.15rem 0.7rem;
+        top: 1.1rem;
+      }
+      .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+      }
+      .package-card {
+        flex-direction: column;
+        min-height: 0;
+      }
+      .package-card .card-img,
+      .package-card .card-info {
+        flex-basis: unset;
+        max-height: unset;
+        border-radius: 0;
+      }
+      .package-card .card-img {
+        min-height: 120px;
+        border-radius: var(--radius) var(--radius) 0 0;
+      }
+      .package-card .card-img img {
+        border-radius: var(--radius) var(--radius) 0 0;
+        min-height: 120px;
+        max-height: 180px;
+      }
+      .package-card .card-info {
+        border-radius: 0 0 var(--radius) var(--radius);
+        padding: 1rem 0.7rem;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.7rem;
+      }
+      .gallery-grid img {
+        height: 100px;
+      }
+      .contact-section {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 2rem 0 1.2rem 0;
+        align-items: stretch;
+      }
+      .contact-form,
+      .contact-info {
+        min-width: 0;
+        max-width: 100vw;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1.2rem 0.7rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 1rem;
+        padding: 0.6rem 0.7rem;
+      }
+      .contact-form button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.7rem 0;
+      }
+    }
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0.5rem 0.5rem;
+      }
+      .hero-content {
+        padding: 0.7rem 0.1rem;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .gallery-grid img {
+        height: 80px;
+      }
+      .contact-form,
+      .contact-info {
+        padding: 0.7rem 0.3rem;
+      }
+    }
+    .book-btn {
+      display: inline-block;
+      margin-top: 0.7rem;
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      font-weight: 600;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: 2rem;
+      padding: 0.6rem 1.7rem;
+      cursor: pointer;
+      transition: background 0.22s, color 0.22s, transform 0.16s;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      }
+      .book-btn:hover {
+      background: var(--blue);
+      color: var(--gold);
+      transform: translateY(-2px) scale(1.03);
+      }
+  </style>
 </head>
-
-<body id="top">
-
-  <!-- ===== HEADER ===== -->
-  <header class="header" data-header>
-    <div class="overlay" data-overlay></div>
-    <div class="header-top">
-      <div class="container">
-        <a href="tel:+91 70258 73525" class="helpline-box">
-          <div class="icon-box">
-            <ion-icon name="call-outline"></ion-icon>
-          </div>
-          <div class="wrapper">
-            <p class="helpline-title">For Further Inquires :</p>
-            <p class="helpline-number">+91 70258 73525</p>
-          </div>
-        </a>
-        <a href="index.html" class="logo">
-          <img src="./assets/images/logocoverbg.webp" alt="Infizen Adventures">
-        </a>
-        <div class="header-btn-group">
-          <button class="search-btn" aria-label="Search">
-            <ion-icon name="search"></ion-icon>
-          </button>
-          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
-            <ion-icon name="menu-outline"></ion-icon>
-          </button>
-        </div>
-      </div>
+<body>
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="logo">
+      <img src="assets/images/logo1.svg" alt="Infizen Adventures Logo">
+      <span class="brand">Infizen Adventures</span>
     </div>
-
-    <div class="header-bottom">
-      <div class="container">
-        <ul class="social-list">
-          <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
-          <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
-          <li><a href="#" class="social-link"><ion-icon name="logo-youtube"></ion-icon></a></li>
-        </ul>
-        <nav class="navbar" data-navbar>
-          <div class="navbar-top">
-            <a href="index.html" class="logo">
-              <img src="./assets/images/logobgr.svg">
-            </a>
-            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-          </div>
-          <ul class="navbar-list">
-            <li><a href="index.html" class="navbar-link" data-nav-link>home</a></li>
-            <li><a href="#" class="navbar-link" data-nav-link>about us</a></li>
-            <li><a href="/index.html#destination" class="navbar-link" data-nav-link>destination</a></li>
-            <li><a href="#" class="navbar-link" data-nav-link>packages</a></li>
-            <li><a href="gallery.html" class="navbar-link" data-nav-link>gallery</a></li>
-            <li><a href="contact.html" class="navbar-link" data-nav-link>contact us</a></li>
-          </ul>
-        </nav>
-        <button class="btn btn-primary">Book Now</button>
-      </div>
+    <nav class="desktop-menu">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#packages">Bali Packages</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hamburger" id="hamburger" aria-label="Open menu" tabindex="0">
+      <span></span><span></span><span></span>
     </div>
   </header>
-
-  <!-- ===== HERO ===== -->
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-label="Mobile menu">
+    <button class="close-btn" id="closeMobileMenu" aria-label="Close menu">&times;</button>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#packages">Bali Packages</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <!-- Hero Section -->
   <section class="hero" id="home">
-    <div class="container">
-      <h2 class="h1 hero-title">Bali Tour Packages</h2>
-      <p class="hero-text">Curated journeys for every kind of soul — from romantic honeymoons and family escapes to spiritual retreats and thrill-seeking adventures.</p>
+    <span class="tagline">World is Ours</span>
+    <video autoplay muted loop playsinline poster="images/bg1.webp" id="heroVideo">
+      <source src="assets/videos/bali-hero.mp4" type="video/mp4">
+      <img src="assets/images/gallery-1.jpg" alt="Bali" class="hero-bgimg">
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Discover Bali with Infizen Adventures</h1>
+      <p>Curated journeys that blend luxury, culture, and soulful experiences.</p>
+      <button class="cta-btn" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">Explore Packages</button>
     </div>
   </section>
 
-  <!-- ===== PACKAGES ===== -->
-  <section class="package" id="package">
-    <div class="container">
+  <!-- Packages Section -->
+  <section class="section" id="packages">
 
-      <p class="section-subtitle">Popular Packages</p>
-      <h2 class="h2 section-title">Bali Tour Packages</h2>
-
-      <ul class="package-list">
-
-        <!-- Package 1 -->
-        <li>
-          <div class="package-card">
-            <div class="popular-card">
-              <figure class="card-img">
-                <img class="default-img" src="images/bali/Bali Honeymoon Escape.webp" alt="Cambodia" loading="lazy">
-                <img class="hover-img" src="images/bali/Bali Honeymoon Escape 1.webp"  alt="Cambodia Hover" loading="lazy">
-              </figure>
-            </div>
-
-            <div class="card-content">
-              <h3 class="h3 card-title">Bali Honeymoon Escape – 6 Nights / 7 Days</h3>
-              <p class="card-text">
-                Perfect for: Couples seeking romance, relaxation & indulgence<br>
-                Destinations: Ubud, Nusa Penida, Seminyak<br>
-                Highlights: Private pool villa stay, romantic candlelight dinner, flower bath, Nusa Penida trip, Bali swing, temple blessing.
-              </p>
-            </div>
-            <div class="card-price">
-              <p class="price">₹62,000 <span>/ per person</span></p>
-              <button class="btn btn-secondary">Book Now</button>
-            </div>
-          </div>
-        </li>
-
-        <!-- Package 2 -->
-        <li>
-          <div class="package-card">
-            <div class="popular-card">
-              <figure class="card-img">
-                <img class="default-img" src="images/bali/ Bali Family Adventure (1).webp" alt="Cambodia" loading="lazy">
-                <img class="hover-img" src="images/bali/ Bali Family Adventure (2).webp"  alt="Cambodia Hover" loading="lazy">
-              </figure>
-            </div>
-            <div class="card-content">
-              <h3 class="h3 card-title">Bali Family Adventure – 7 Nights / 8 Days</h3>
-              <p class="card-text">
-                Perfect for: Families with kids or multigenerational travelers<br>
-                Destinations: Ubud, Sanur, Nusa Dua<br>
-                Highlights: Family-friendly villa stays, Bali Safari, Waterbom park, Balinese dance, Monkey Forest, rice terraces.
-              </p>
-            </div>
-            <div class="card-price">
-              <p class="price">₹56,000 <span>/ per person</span></p>
-              <button class="btn btn-secondary">Book Now</button>
-            </div>
-          </div>
-        </li>
-
-        <!-- Package 3 -->
-        <li>
-          <div class="package-card">
-            <div class="popular-card">
-              <figure class="card-img">
-                <img class="default-img" src="images/bali/Bali Wellness & Spiritual Journey (1).webp" alt="Cambodia" loading="lazy">
-                <img class="hover-img" src="images/bali/Bali Wellness & Spiritual Journey (2).webp"  alt="Cambodia Hover" loading="lazy">
-              </figure>
-            </div>
-            <div class="card-content">
-              <h3 class="h3 card-title">Bali Wellness & Spiritual Journey – 6 Nights / 7 Days</h3>
-              <p class="card-text">
-                Perfect for: Solo travelers, women’s groups, spiritual seekers<br>
-                Destinations: Ubud, Sidemen, Tirta Empul<br>
-                Highlights: Wellness retreat stay, daily yoga, water purification ceremony, Balinese healers, sound healing, cacao ceremony.
-              </p>
-            </div>
-            <div class="card-price">
-              <p class="price">₹59,000 <span>/ per person</span></p>
-              <button class="btn btn-secondary">Book Now</button>
-            </div>
-          </div>
-        </li>
-
-        <!-- Package 4 -->
-        <li>
-          <div class="package-card">
-            <div class="popular-card">
-              <figure class="card-img">
-                <img class="default-img" src="images/bali/Bali Thrill Seeker Adventure  1.webp" alt="Cambodia" loading="lazy">
-                <img class="hover-img" src="images/bali/Bali Thrill Seeker Adventure.webp"  alt="Cambodia Hover" loading="lazy">
-              </figure>
-            </div>
-            <div class="card-content">
-              <h3 class="h3 card-title">Bali Thrill Seeker Adventure – 6 Nights / 7 Days</h3>
-              <p class="card-text">
-                Perfect for: Youth groups, friends, adrenaline junkies<br>
-                Destinations: Ubud, Seminyak, Mount Batur<br>
-                Highlights: Mount Batur hike, ATV rides, rafting, surfing, beach clubs, scooter rentals.
-              </p>
-            </div>
-            <div class="card-price">
-              <p class="price">₹52,000 <span>/ per person</span></p>
-              <button class="btn btn-secondary">Book Now</button>
-            </div>
-          </div>
-        </li>
-
-        <!-- Package 5 -->
-        <li>
-          <div class="package-card">
-            <div class="popular-card">
-              <figure class="card-img">
-                <img class="default-img" src="images/bali/EKAM Bali Transformational Group Retreat 1.webp" alt="Cambodia" loading="lazy">
-                <img class="hover-img" src="images/bali/EKAM Bali Transformational Group Retreat.webp"  alt="Cambodia Hover" loading="lazy">
-              </figure>
-            </div>
-            <div class="card-content">
-              <h3 class="h3 card-title">EKAM Bali: Transformational Group Retreat – 10 Days</h3>
-              <p class="card-text">
-                Perfect for: Conscious travelers, community builders, creatives<br>
-                Destinations: Bali, Ubud, Nusa Penida, Gili Islands<br>
-                Highlights: Spiritual practices, workshops, tribe circles, island stays, cacao ceremonies, fire rituals, ecstatic dance.
-              </p>
-            </div>
-            <div class="card-price">
-              <p class="price">Custom Pricing</p>
-              <button class="btn btn-secondary">Book Now</button>
-            </div>
-          </div>
-        </li>
-
-      </ul>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-<footer class="footer">
-
-    <div class="footer-top">
-      <div class="container">
-
-        <div class="footer-brand">
-
-          <a href="#" class="logo">
-            <img src="./assets/images/logo.jpg" alt="Tourly logo">
-          </a>
-
-          <h3 class="h3" style="color: white;">Let’s Start Planning Your Dream Trip </h3>
-          <p class="h4" >From curated getaways to fully custom experiences, we’re here to design the journey your soul craves. </p>
-
+    <h2 class="section-title">Bali Tour Packages</h2>
+    <div class="packages-grid">
+      <!-- Card 1 -->
+      <div class="package-card" tabindex="0">
+        <div class="card-img">
+          <img src="images/bali/Bali Honeymoon Escape.webp" alt="Bali Honeymoon Escape">
         </div>
-
-        <div class="footer-contact">
-
-          <h4 class="contact-title">Contact Us</h4>
-
-          <p class="contact-text">
-            Feel free to contact and reach us !!
-          </p>
-
+        <div class="card-info">
+          <h3>Bali Honeymoon Escape</h3>
+          <div class="meta">6 Nights / 7 Days</div>
+          <div class="desc">Perfect for: Couples seeking romance, relaxation & indulgence<br>
+            Destinations: Ubud, Nusa Penida, Seminyak</div>
           <ul>
-
-            <li class="contact-item">
-              <ion-icon name="call-outline"></ion-icon>
-
-              <a href="tel:+91 70258 73525" class="contact-link">+91 70258 73525 </a>
-            </li>
-
-            <li class="contact-item">
-              <ion-icon name="mail-outline"></ion-icon>
-
-              <a href="mailto:info@infizenadvwntures.com" class="contact-link">info@infizenadvwntures.com</a>
-            </li>
-
-            <li class="contact-item">
-              <ion-icon name="location-outline"></ion-icon>
-
-              <address>Door No. 238 , Engandiyur,Thrissur, Kerala - 680615</address>
-            </li>
-
+            <li>Private pool villa stay</li>
+            <li>Romantic candlelight dinner by the beach</li>
+            <li>Flower bath & couples spa</li>
+            <li>Island hopping to Nusa Penida (private boat option)</li>
+            <li>Bali swing + photoshoot session</li>
+            <li>Temple blessing for a blissful bond</li>
           </ul>
-
+          <div class="price">Starting from: ₹62,000 per person</div>
         </div>
-
-        <div class="footer-form">
-
-          <p class="form-text">
-            Subscribe our newsletter for more update & news !!
-          </p>
-
-          <form action="" class="form-wrapper">
-            <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
-
-            <button type="submit" class="btn btn-secondary">Subscribe</button>
-          </form>
-
+      </div>
+      <!-- Card 2 -->
+      <div class="package-card" tabindex="0">
+        <div class="card-img">
+          <img src="images/bali/ Bali Family Adventure (1).webp" alt="Bali Family Adventure">
         </div>
-
+        <div class="card-info">
+          <h3>Bali Family Adventure</h3>
+          <div class="meta">7 Nights / 8 Days</div>
+          <div class="desc">Perfect for: Families with kids & multi-generational trips<br>
+            Destinations: Ubud, Kuta, Nusa Dua</div>
+          <ul>
+            <li>Family-friendly resorts with pools</li>
+            <li>Safari & Marine Park visit</li>
+            <li>Beach fun & banana boat rides</li>
+            <li>Rice terrace walk + local village interaction</li>
+            <li>Waterfall picnic experience</li>
+            <li>Traditional Balinese dance evening</li>
+          </ul>
+          <div class="price">Starting from: ₹55,000 per person</div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="package-card" tabindex="0">
+        <div class="card-img">
+          <img src="images/bali/Bali Thrill Seeker Adventure.webp" alt="Bali Thrill Seeker Adventure">
+        </div>
+        <div class="card-info">
+          <h3>Bali Thrill Seeker Adventure</h3>
+          <div class="meta">6 Nights / 7 Days</div>
+          <div class="desc">Perfect for: Adrenaline junkies & adventure lovers<br>
+            Destinations: Ubud, Mount Batur, Amed</div>
+          <ul>
+            <li>White water rafting</li>
+            <li>ATV jungle ride</li>
+            <li>Sunrise trek at Mount Batur</li>
+            <li>Scuba diving / snorkeling at Amed</li>
+            <li>Bali swing & zipline experience</li>
+          </ul>
+          <div class="price">Starting from: ₹58,000 per person</div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="package-card" tabindex="0">
+        <div class="card-img">
+          <img src="images/bali/Bali Wellness & Spiritual Journey (1).webp" alt="Bali Wellness & Spiritual Journey">
+        </div>
+        <div class="card-info">
+          <h3>Bali Wellness & Spiritual Journey</h3>
+          <div class="meta">7 Nights / 8 Days</div>
+          <div class="desc">Perfect for: Wellness seekers, yogis, soul travelers<br>
+            Destinations: Ubud, Sidemen</div>
+          <ul>
+            <li>Daily yoga & meditation retreats</li>
+            <li>Detox meals & organic cooking class</li>
+            <li>Temple water blessing ceremony</li>
+            <li>Sound healing & chakra balancing</li>
+            <li>Spa therapies & herbal treatments</li>
+          </ul>
+          <div class="price">Starting from: ₹60,000 per person</div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="package-card" tabindex="0">
+        <div class="card-img">
+          <img src="images/bali/EKAM Bali Transformational Group Retreat.webp" alt="EKAM Bali Transformational Group Retreat">
+        </div>
+        <div class="card-info">
+          <h3>EKAM Bali Transformational Group Retreat</h3>
+          <div class="meta">8 Nights / 9 Days</div>
+          <div class="desc">Perfect for: Groups, corporate wellness, spiritual seekers<br>
+            Destinations: Ubud, Canggu</div>
+          <ul>
+            <li>Group yoga & meditation sessions</li>
+            <li>Workshops on mindfulness & leadership</li>
+            <li>Cultural immersion programs</li>
+            <li>Team bonding activities</li>
+            <li>Closing fire ceremony</li>
+          </ul>
+          <div class="price">Starting from: ₹65,000 per person</div>
+        </div>
       </div>
     </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-
-        <p class="copyright">
-          &copy; 2025 <a href="https://futurinx.com/">futurinx</a>. All rights reserved
-        </p>
-
-        <ul class="footer-bottom-list">
-
-          <li>
-            <a href="#" class="footer-bottom-link">Privacy Policy</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-bottom-link">Term & Condition</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-bottom-link">FAQ</a>
-          </li>
-
-        </ul>
-
+  </section>
+  <!-- Gallery Section -->
+  <section class="section" id="gallery">
+    <h2 class="section-title">Bali Gallery</h2>
+    <div class="gallery-grid">
+      <img src="assets/images/gallery-1.jpg" alt="Bali Gallery 1">
+      <img src="assets/images/gallery-2.jpg" alt="Bali Gallery 2">
+      <img src="assets/images/gallery-3.jpg" alt="Bali Gallery 3">
+      <img src="assets/images/gallery-4.jpg" alt="Bali Gallery 4">
+      <img src="assets/images/gallery-5.jpg" alt="Bali Gallery 5">
+    </div>
+  </section>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="close-btn" id="closeLightbox" aria-label="Close gallery">&times;</button>
+    <img src="" alt="Gallery Large" id="lightboxImg">
+  </div>
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <form class="contact-form" id="contactForm" autocomplete="off">
+      <h2 class="section-title" style="font-size:1.4rem;margin-bottom:1.2rem;">Contact Us</h2>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required maxlength="60">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required maxlength="60">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" maxlength="20">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required maxlength="500"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="contact-info">
+      <h4>Infizen Adventures</h4>
+      <div class="info"><i class="fa fa-map-marker-alt"></i> Thrissur, Kerala</div>
+      <div class="info"><i class="fa fa-envelope"></i> <a href="mailto:info@infizenadventures.com" style="color:inherit;text-decoration:none;">info@infizenadventures.com</a></div>
+      <div class="info"><i class="fa fa-phone"></i> <a href="tel:+919876543210" style="color:inherit;text-decoration:none;">+91 98765 43210</a></div>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
+  </section>
+  <script>
+    // Navbar glassmorphism on scroll
+    window.addEventListener('scroll', function() {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
 
-  </footer>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+    hamburger.addEventListener('keydown', e => { if(e.key==='Enter') mobileMenu.classList.add('open'); });
+    closeMobileMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
-  <!-- Scripts -->
-  <script src="./assets/js/script.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    // Section scroll animations
+    function revealOnScroll() {
+      document.querySelectorAll('.section-title, .package-card, .contact-form, .contact-info').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 80) el.classList.add('visible');
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
 
+    // Packages card hover/touch
+    document.querySelectorAll('.package-card').forEach(card => {
+      card.addEventListener('touchstart', function() {
+        document.querySelectorAll('.package-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+      });
+      card.addEventListener('touchend', function() {
+        setTimeout(()=>card.classList.remove('active'), 1200);
+      });
+      card.addEventListener('mouseleave', function() {
+        card.classList.remove('active');
+      });
+      card.addEventListener('focus', function() {
+        card.classList.add('active');
+      });
+      card.addEventListener('blur', function() {
+        card.classList.remove('active');
+      });
+    });
+
+    // Gallery lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.gallery-grid img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('open');
+      });
+    });
+    document.getElementById('closeLightbox').onclick = () => lightbox.classList.remove('open');
+    lightbox.addEventListener('click', e => {
+      if(e.target === lightbox) lightbox.classList.remove('open');
+    });
+    window.addEventListener('keydown', e => {
+      if(e.key === 'Escape') lightbox.classList.remove('open');
+    });
+
+    // Hero video fallback
+    document.getElementById('heroVideo').addEventListener('error', function() {
+      this.style.display = 'none';
+      document.querySelector('.hero-bgimg').style.display = 'block';
+    });
+
+    // Ripple effect for buttons
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const circle = document.createElement('span');
+        circle.className = 'ripple';
+        const rect = btn.getBoundingClientRect();
+        circle.style.left = (e.clientX - rect.left) + 'px';
+        circle.style.top = (e.clientY - rect.top) + 'px';
+        circle.style.width = circle.style.height = Math.max(rect.width, rect.height) + 'px';
+        btn.appendChild(circle);
+        setTimeout(()=>circle.remove(), 600);
+      });
+    });
+
+    // Contact form (no backend, just demo)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for contacting Infizen Adventures! We will get back to you soon.');
+      this.reset();
+    });
+  </script>
+    
+    <script>
+      function bookOnWhatsApp(packageName) {
+      const phone = '917736333004';
+      const text = encodeURIComponent(`Hello, I am interested in booking the "${packageName}" Bali package.`);
+      window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+      }
+      // Add booking buttons to all package cards
+      document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.package-card').forEach(function(card) {
+        const title = card.querySelector('h3')?.innerText || 'Bali';
+        const btn = document.createElement('button');
+        btn.className = 'book-btn';
+        btn.type = 'button';
+        btn.innerText = 'Book Now';
+        btn.onclick = function() { bookOnWhatsApp(title); };
+        card.querySelector('.card-info').appendChild(btn);
+      });
+      });
+    </script>
+    
 </body>
 </html>
