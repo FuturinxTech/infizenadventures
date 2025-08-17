@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content=" Experience Kuala Lumpur, Genting Highlands and historic Malacca on a 4D/3N curated escape by Infizen Adventures. Includes city tours, Genting cable car, Petronas Twin Tower entry, daily breakfast, private transfers and an English-speaking guide. Book now.">
+  <title> Malaysia Tour Package | Infizen Adventures — 4 Days / 3 Nights</title>
+  <meta name="description" content="Infizen Adventures Bali tour packages offer luxury, family, wellness, and adventure travel experiences in Bali. Explore curated journeys across Ubud, Nusa Penida, Gili Islands, and more.">
+  <link rel="stylesheet" href="./assets/css/package.css">
+  <style>
+    .banner {
+  background: url("/images/bg.webp") no-repeat center center/cover;
+  padding-block: calc(var(--section-padding) * 1.5);
+  color: var(--white);
+  text-align: center;
+  }
+  .banner-title {
+    font-size: var(--fs-1);
+    margin-bottom: 20px;
+  }
+  .banner-text {
+    font-size: var(--fs-5);
+    margin-bottom: 30px;
+  }
+  .banner .btn {
+    --padding: 12px 30px;
+    --fs-5: 16px;
+    background: var(--bright-navy-blue);
+    color: var(--white);
+    border-radius: 100px;
+    transition: var(--transition);
+  }
+  .banner .btn:is(:hover, :focus) {
+    background: var(--united-nations-blue);
+    color: var(--white);
+  }
+  .banner .btn:is(:hover, :focus) { background: var(--united-nations-blue); }
+  .banner .btn:is(:hover, :focus) { color: var(--white); }
+  .banner .btn {
+    --padding: 12px 30px;
+    --fs-5: 16px;
+    background: var(--bright-navy-blue);
+    color: var(--white);
+    border-radius: 100px;
+    transition: var(--transition);
+  }
+  .banner .btn:is(:hover, :focus) {
+    background: var(--united-nations-blue);
+    color: var(--white);
+  }
+
+/* Package cards (Inclusive / Excludes / Terms) */
+.package-inclusive,
+.package-excludes,
+.terms-conditions {
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 22px;
+    margin: 20px auto;
+    max-width: 1100px;
+    box-shadow: 0 6px 20px rgba(3, 10, 18, 0.12);
+    color: var(--text-color, #222);
+
+    /* animation entry */
+    will-change: transform, opacity;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: fadeUp 560ms cubic-bezier(.22,.9,.32,1) forwards;
+}
+
+/* stagger the three blocks for nicer entrance */
+.package-inclusive { animation-delay: 80ms; }
+.package-excludes { animation-delay: 220ms; }
+.terms-conditions { animation-delay: 360ms; }
+
+/* Titles */
+.package-inclusive-title,
+.package-excludes-title,
+.terms-conditions-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.15rem;
+    color: var(--bright-navy-blue, #0b57d0);
+    margin: 0 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed rgba(0,0,0,0.06);
+
+    /* subtle slide-in for title */
+    opacity: 0;
+    transform: translateY(8px);
+    animation: fadeUp 480ms cubic-bezier(.22,.9,.32,1) forwards;
+}
+
+/* keep title animations slightly earlier than parent content */
+.package-inclusive-title { animation-delay: 180ms; }
+.package-excludes-title { animation-delay: 320ms; }
+.terms-conditions-title { animation-delay: 440ms; }
+
+/* Content lists */
+.package-inclusive-list,
+.package-excludes-list,
+.terms-conditions-list {
+    list-style: none;
+    padding: 14px 6px 0 6px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    font-size: 0.98rem;
+    line-height: 1.5;
+    color: var(--muted, #444);
+
+    /* list items will fade in with a slight stagger (see nth-child) */
+}
+
+/* If author used <li> elements they will get a custom bullet */
+.package-inclusive-list li,
+.package-excludes-list li,
+.terms-conditions-list li {
+    position: relative;
+    padding-left: 34px;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: fadeIn 420ms cubic-bezier(.22,.9,.32,1) forwards;
+    will-change: transform, opacity;
+}
+
+/* Stagger list rows up to 12 items */
+.package-inclusive-list li:nth-child(1),
+.package-excludes-list li:nth-child(1),
+.terms-conditions-list li:nth-child(1) { animation-delay: 220ms; }
+.package-inclusive-list li:nth-child(2),
+.package-excludes-list li:nth-child(2),
+.terms-conditions-list li:nth-child(2) { animation-delay: 280ms; }
+.package-inclusive-list li:nth-child(3),
+.package-excludes-list li:nth-child(3),
+.terms-conditions-list li:nth-child(3) { animation-delay: 340ms; }
+.package-inclusive-list li:nth-child(4),
+.package-excludes-list li:nth-child(4),
+.terms-conditions-list li:nth-child(4) { animation-delay: 400ms; }
+.package-inclusive-list li:nth-child(5),
+.package-excludes-list li:nth-child(5),
+.terms-conditions-list li:nth-child(5) { animation-delay: 460ms; }
+.package-inclusive-list li:nth-child(6),
+.package-excludes-list li:nth-child(6),
+.terms-conditions-list li:nth-child(6) { animation-delay: 520ms; }
+.package-inclusive-list li:nth-child(7),
+.package-excludes-list li:nth-child(7),
+.terms-conditions-list li:nth-child(7) { animation-delay: 580ms; }
+.package-inclusive-list li:nth-child(8),
+.package-excludes-list li:nth-child(8),
+.terms-conditions-list li:nth-child(8) { animation-delay: 640ms; }
+.package-inclusive-list li:nth-child(9),
+.package-excludes-list li:nth-child(9),
+.terms-conditions-list li:nth-child(9) { animation-delay: 700ms; }
+.package-inclusive-list li:nth-child(10),
+.package-excludes-list li:nth-child(10),
+.terms-conditions-list li:nth-child(10) { animation-delay: 760ms; }
+
+/* Check / dash icons for inclusions and excludes */
+.package-inclusive-list li::before,
+.package-excludes-list li::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s ease;
+}
+
+/* Inclusive: green check dot */
+.package-inclusive-list li::before {
+    background: linear-gradient(135deg, #33c77a, #1aa761);
+    box-shadow: 0 1px 4px rgba(26,167,97,0.25);
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M20.285 6.708l-11.62 11.62-5.647-5.647 1.414-1.414 4.233 4.233 10.206-10.206z"/></svg>') center / contain no-repeat;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M20.285 6.708l-11.62 11.62-5.647-5.647 1.414-1.414 4.233 4.233 10.206-10.206z"/></svg>') center / contain no-repeat;
+
+    /* pop animation on entry */
+    transform-origin: center;
+    animation: iconPop 420ms cubic-bezier(.22,.9,.32,1) both;
+}
+
+/* Excludes: muted dash icon */
+.package-excludes-list li::before {
+    background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.04));
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="2" rx="1" fill="white"/></svg>') center / contain no-repeat;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="2" rx="1" fill="white"/></svg>') center / contain no-repeat;
+
+    animation: iconFade 420ms cubic-bezier(.22,.9,.32,1) both;
+}
+
+/* Terms: numbered style if <li> used */
+.terms-conditions-list {
+    counter-reset: tnc;
+}
+.terms-conditions-list li::before {
+    counter-increment: tnc;
+    content: counter(tnc) ".";
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--bright-navy-blue, #0b57d0);
+    font-weight: 600;
+    width: 22px;
+    text-align: right;
+    font-size: 0.95rem;
+    padding-right: 6px;
+}
+
+/* Fallback styling when author used plain text + <br> inside the UL:
+     make text look like separate paragraphs */
+.package-inclusive-list,
+.package-excludes-list,
+.terms-conditions-list {
+    white-space: pre-line; /* respects existing <br> */
+}
+
+/* Hover lifts and subtle background shimmer */
+.package-inclusive:hover,
+.package-excludes:hover,
+.terms-conditions:hover {
+    transform: translateY(-6px) scale(1.005);
+    box-shadow: 0 14px 36px rgba(3, 10, 18, 0.14);
+    transition: transform 260ms cubic-bezier(.22,.9,.32,1), box-shadow 260ms ease;
+}
+
+/* Make list item slightly highlight on hover */
+.package-inclusive-list li:hover,
+.package-excludes-list li:hover,
+.terms-conditions-list li:hover {
+    background: rgba(255,255,255,0.01);
+    border-radius: 6px;
+    transform: translateX(4px);
+    transition: transform 240ms cubic-bezier(.2,.9,.3,1), background 240ms ease;
+}
+
+/* Responsive adjustments */
+@media (min-width: 860px) {
+    .package-inclusive,
+    .package-excludes,
+    .terms-conditions {
+        padding: 28px;
+    }
+
+    /* Place the three blocks in a centered multi-column look when space allows */
+    .package-inclusive,
+    .package-excludes,
+    .terms-conditions {
+        max-width: 980px;
+    }
+}
+
+/* Small screens */
+@media (max-width: 479px) {
+    .package-inclusive-title,
+    .package-excludes-title,
+    .terms-conditions-title {
+        font-size: 1rem;
+    }
+    .package-inclusive,
+    .package-excludes,
+    .terms-conditions {
+        padding: 16px;
+        margin: 14px 12px;
+    }
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes iconPop {
+    0% { transform: scale(.6) translateY(2px); opacity: 0; }
+    60% { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+@keyframes iconFade {
+    from { transform: scale(.88); opacity: .0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .package-inclusive,
+    .package-excludes,
+    .terms-conditions,
+    .package-inclusive-title,
+    .package-excludes-title,
+    .terms-conditions-title,
+    .package-inclusive-list li,
+    .package-excludes-list li,
+    .terms-conditions-list li,
+    .package-inclusive-list li::before,
+    .package-excludes-list li::before {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+/* Book Now — animated, polished, mobile-friendly */
+.book-now {
+    --bg-start: #072a63;
+    --bg-end: #0b57d0;
+    --accent: #ffd166;
+    --glass: rgba(255,255,255,0.06);
+
+    position: relative;
+    overflow: hidden;
+    margin: 36px auto;
+    padding: 44px 30px;
+    border-radius: 18px;
+    color: #fff;
+    background: linear-gradient(120deg, var(--bg-start) 0%, var(--bg-end) 60%);
+    box-shadow: 0 10px 40px rgba(6,30,80,0.45), inset 0 1px 0 rgba(255,255,255,0.03);
+    backdrop-filter: blur(6px);
+}
+
+/* decorative animated blobs */
+.book-now::before,
+.book-now::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% -20% auto;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    filter: blur(34px);
+    opacity: 0.18;
+    transform: translate3d(0,0,0);
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+.book-now::before {
+    background: radial-gradient(circle at 30% 30%, rgba(255,217,128,0.95), rgba(255,209,120,0.25) 30%, transparent 60%);
+    left: -6%;
+    top: -10%;
+    animation: floatSlow 9s ease-in-out infinite;
+}
+.book-now::after {
+    background: radial-gradient(circle at 70% 70%, rgba(102,204,255,0.95), rgba(102,195,255,0.18) 30%, transparent 60%);
+    right: -16%;
+    bottom: -18%;
+    width: 420px;
+    height: 420px;
+    animation: floatSlow 11s ease-in-out reverse infinite;
+}
+
+/* inner layout */
+.book-now .container {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative; /* keep above pseudo elements */
+    z-index: 2;
+}
+
+/* Title + text */
+.book-now-title {
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+    line-height: 1.05;
+    text-shadow: 0 6px 20px rgba(2,8,40,0.45);
+}
+.book-now-text {
+    margin: 6px 0 0;
+    color: rgba(255,255,255,0.92);
+    font-weight: 500;
+    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+    max-width: 720px;
+    opacity: 0.97;
+}
+
+/* CTA button */
+.book-now .btn {
+    --padding: 12px 20px;
+    background: linear-gradient(90deg, #ffd166 0%, #ff9f1c 100%);
+    color: #072a63;
+    font-weight: 800;
+    border-radius: 999px;
+    padding: 12px 26px;
+    box-shadow: 0 10px 30px rgba(255,159,28,0.18);
+    border: none;
+    cursor: pointer;
+    transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s ease, opacity .12s ease;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    white-space: nowrap;
+    transform-origin: center;
+    min-width: 160px;
+}
+.book-now .btn:hover,
+.book-now .btn:focus {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 18px 48px rgba(255,159,28,0.22);
+    text-decoration: none;
+}
+.book-now .btn:active { transform: translateY(-3px) scale(1.01); }
+.book-now .btn:focus-visible { outline: 3px solid rgba(255,223,120,0.22); outline-offset: 4px; border-radius: 999px; }
+
+/* subtle entrance animation */
+.book-now {
+    opacity: 0;
+    transform: translateY(18px) scale(.995);
+    animation: revealUp 640ms cubic-bezier(.22,.9,.32,1) forwards;
+    animation-delay: 160ms;
+}
+
+/* small animated highlight under title */
+.book-now-title::after {
+    content: "";
+    display: block;
+    height: 6px;
+    width: 72px;
+    margin-top: 12px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06));
+    transform-origin: left center;
+    animation: pulseLine 1600ms ease-in-out infinite;
+    opacity: 0.9;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 760px) {
+    .book-now {
+        padding: 28px 18px;
+        border-radius: 12px;
+    }
+    .book-now .container { flex-direction: column; align-items: center; text-align: center; }
+    .book-now-title { font-size: 1.35rem; }
+    .book-now-text { margin-bottom: 14px; max-width: 100%; }
+    .book-now .btn { width: 100%; max-width: 420px; justify-content: center; font-size: 1rem; min-width: auto; }
+    .book-now::before, .book-now::after { display: none; } /* keep mobile light & legible */
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .book-now::before,
+    .book-now::after,
+    .book-now,
+    .book-now-title::after,
+    .book-now .btn {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Keyframes */
+@keyframes floatSlow {
+    0% { transform: translateY(0) translateX(0) scale(1); opacity: .18; }
+    50% { transform: translateY(-22px) translateX(8px) scale(1.06); opacity: .22; }
+    100% { transform: translateY(0) translateX(0) scale(1); opacity: .18; }
+}
+@keyframes revealUp {
+    from { opacity: 0; transform: translateY(18px) scale(.995); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes pulseLine {
+    0% { transform: scaleX(.88); opacity: .7; }
+    50% { transform: scaleX(1.02); opacity: 1; }
+    100% { transform: scaleX(.88); opacity: .7; }
+}
+
+  </style>
+  <link rel="stylesheet" href="">
+</head>
+
+<body id="top">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" data-header>
+    <div class="overlay" data-overlay></div>
+    <div class="header-top">
+      <div class="container">
+        <a href="tel:+91 70258 73525" class="helpline-box">
+          <div class="icon-box">
+            <ion-icon name="call-outline"></ion-icon>
+          </div>
+          <div class="wrapper">
+            <p class="helpline-title">For Further Inquires :</p>
+            <p class="helpline-number">+91 70258 73525</p>
+          </div>
+        </a>
+        <a href="index.html" class="logo">
+          <img src="./assets/images/logocoverbg.webp" alt="Infizen Adventures">
+        </a>
+        <div class="header-btn-group">
+          <button class="search-btn" aria-label="Search">
+            <ion-icon name="search"></ion-icon>
+          </button>
+          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="container">
+        <ul class="social-list">
+          <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+          <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+          <li><a href="#" class="social-link"><ion-icon name="logo-youtube"></ion-icon></a></li>
+        </ul>
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="index.html" class="logo">
+              <img src="./assets/images/logobgr.svg">
+            </a>
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+          <ul class="navbar-list">
+            <li><a href="index.html" class="navbar-link" data-nav-link>home</a></li>
+            <li><a href="#" class="navbar-link" data-nav-link>about us</a></li>
+            <li><a href="/index.html#destination" class="navbar-link" data-nav-link>destination</a></li>
+            <li><a href="#" class="navbar-link" data-nav-link>packages</a></li>
+            <li><a href="gallery.html" class="navbar-link" data-nav-link>gallery</a></li>
+            <li><a href="contact.html" class="navbar-link" data-nav-link>contact us</a></li>
+          </ul>
+        </nav>
+        <button class="btn btn-primary">Book Now</button>
+      </div>
+    </div>
+  </header>
+  <br><br><br><br>
+
+  <!-- ===== BANNER ===== -->
+<section class="banner" aria-label="Kenya Safari Expedition" style="background: linear-gradient(180deg, rgba(0,0,0,0.60), rgba(0,0,0,0.30)), url('images/Kenya/\ \(3\).webp') center/cover no-repeat; padding-block: calc(var(--section-padding) * 1.8);">
+    <div class="container" style="text-align:center; color: #fff;">
+        <h1 class="banner-title" style="font-weight:800; letter-spacing: -0.02em; text-shadow: 0 8px 30px rgba(0,0,0,0.6);">Kenya Safari Expedition</h1>
+        <p class="banner-text" style="color: rgba(235,245,255,0.92); font-weight:600; margin-bottom: 28px;">Amboseli • Lake Nakuru • Masai Mara • Nairobi – 6 Days / 5 Nights</p>
+
+        <a href="#package" class="btn banner-cta" style="display:inline-flex; align-items:center; gap:12px; padding:12px 28px; border-radius:999px; background: linear-gradient(90deg,#0b57d0,#165ee8); box-shadow: 0 10px 30px rgba(11,87,208,0.22); color:#fff; font-weight:700; transform-origin:center;" role="button">
+            Explore Safari
+            <span class="cta-arrow" aria-hidden="true" style="display:inline-block; transition: transform .28s cubic-bezier(.2,.9,.3,1);">→</span>
+        </a>
+    </div>
+
+    <style>
+        .banner-cta {
+            animation: subtleFloat 6s ease-in-out infinite;
+            transition: box-shadow .22s ease, transform .18s ease;
+        }
+        .banner-cta:hover,
+        .banner-cta:focus {
+            box-shadow: 0 18px 48px rgba(11,87,208,0.26);
+            transform: translateY(-4px) scale(1.01);
+            text-decoration: none;
+        }
+        .banner-cta:active { transform: translateY(-2px) scale(.995); }
+
+        .banner-cta .cta-arrow { display:inline-block; transform: translateX(0); }
+        .banner-cta:hover .cta-arrow,
+        .banner-cta:focus .cta-arrow { transform: translateX(6px); }
+
+        @keyframes subtleFloat {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        @media (max-width:640px) {
+            .banner .container { padding-inline: 16px; }
+            .banner-title { font-size: 1.6rem; }
+            .banner-text { font-size: 0.95rem; }
+            .banner-cta { padding:10px 18px; font-size:0.95rem; }
+        }
+    </style>
+</section>
+
+  <!-- ===== PACKAGES ===== -->
+  <section class="package" id="package">
+    <div class="container">
+
+      <p class="section-subtitle">Popular Packages</p>
+      <h2 class="h2 section-title">Explore Our Curated Cambodia Tours</h2>
+
+      <ul class="package-list">
+
+        <!--Day 1-->
+        <li>
+          <div class="package-card">
+            <div class="popular-card">
+              <figure class="card-img">
+                <img class="default-img" src="images/Kenya/ (1).webp" alt="Kenya" loading="lazy">
+                <img class="hover-img" src="images/Kenya/ (9).webp"  alt="Kenya Hover" loading="lazy">
+              </figure>
+            </div>
+
+            <div class="card-content">
+              <h4 class="h3 card-title"> Arrival Nairobi → Amboseli National Park </h4><br>
+                <small>
+                    ● Breakfast at CJ’s Nairobi. <br>
+                    ● Transfer to Amboseli Sopa Lodge. <br>
+                    ● Afternoon game drive at Amboseli National Park. <br>
+                    ● Famous for elephants & Mt. Kilimanjaro views. <br>
+                    ● Visit to Amboseli National Park. <br>
+                    ● Famous for elephants & Mt. Kilimanjaro views. <br>
+                    ● Overnight at Amboseli Penety Resort (or similar). <br>
+                </small>
+                </div>
+            <div class="card-price">
+              <p class="price">Day 1</p>
+            </div>
+          </div>
+        </li>
+        <!--Day 2-->
+         <li>
+          <div class="package-card">
+            <div class="popular-card">
+              <figure class="card-img">
+                <img class="default-img" src="images/Kenya/ (2).webp" alt="Kenya" loading="lazy">
+                <img class="hover-img" src="images/Kenya/ (10).webp"  alt="Kenya Hover" loading="lazy">
+              </figure>
+            </div>
+
+            <div class="card-content">
+              <h3 class="h3 card-title"> Amboseli → Lake Nakuru National Park </h3>
+            <small>
+                    ● Scenic drive to Lake Nakuru. <br>
+                    ● Check-in at Sopa Nakuru Lodge. <br>
+                    ● Afternoon game drive: rhinos, lions, Rothschild giraffes, flamingos. <br>
+                    ● Overnight at Pelican Resort (or similar). <br>
+            </small>
+                </div>
+            <div class="card-price">
+              <p class="price">Day 2</p>
+            </div>
+          </div>
+        </li>
+
+        <!--Day 3-->
+        <li>
+          <div class="package-card">
+            <div class="popular-card">
+              <figure class="card-img">
+                <img class="default-img" src="images/Kenya/ (3).webp" alt="Kenya" loading="lazy">
+                <img class="hover-img" src="images/Kenya/ (8).webp"  alt="Kenya Hover" loading="lazy">
+              </figure>
+            </div>
+
+            <div class="card-content">
+              <h3 class="h3 card-title">Lake Nakuru → Masai Mara </h3>
+                <small>
+                    ● Drive to Masai Mara National Reserve. <br>
+                    ● Check-in at Drunken Elephant Mara Camp. <br>
+                    ● Afternoon game drive across the golden plains. <br> 
+                    ● Overnight at Enkorok Camp (or similar). <br>
+                </small>
+                </div>
+            <div class="card-price">
+              <p class="price">Day 3</p>
+            </div>
+            </div>
+        </li>
+        <!--Day 4-->
+        <li>
+            <div class="package-card">
+                <div class="popular-card">
+                <figure class="card-img">
+                    <img class="default-img" src="images/Kenya/ (4).webp" alt="Kenya" loading="lazy">
+                    <img class="hover-img" src="images/Kenya/ (7).webp"  alt="Kenya Hover" loading="lazy">
+                </figure>
+                </div>
+    
+                <div class="card-content">
+                <h3 class="h3 card-title"> Masai Mara Full-Day Safari </h3>
+                <small>
+                    ● Full-day game drive in Masai Mara. <br>
+                    ● Big Five sightings, picnic lunch. <br>
+                    ● Visit to Mara River & Maasai Village. <br>
+                    ● Overnight at Enkorok Camp (or similar). <br>
+                </small>
+                    </div>
+                <div class="card-price">
+                <p class="price">Day 4 </p>
+                </div>
+            </div>
+        </li>
+        <!--Day 5-->
+        <li>
+            <div class="package-card">
+                <div class="popular-card">
+                    <figure class="card-img">
+                        <img class="default-img" src="images/Kenya/ (5).webp" alt="Kenya" loading="lazy">
+                        <img class="hover-img" src="images/Kenya/ (3).webp"  alt="Kenya Hover" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="card-content">
+                    <h3 class="h3 card-title"> Masai Mara → Nairobi </h3>
+                    <small>
+                        ● Scenic drive back to Nairobi. <br>
+                        ● Lunch at Barbeque Nation. <br>
+                        ● City tour of Nairobi. <br>
+                        ● Overnight at Panari Hotel / Argyle Grand Hotel (or similar). <br>
+                    </small>
+                </div>
+                <div class="card-price">
+                    <p class="price">Day 5 </p>
+                </div>
+            </div>
+        </li>
+
+        <!--Day 6-->
+        <li>
+                <div class="package-card">
+                <div class="popular-card">
+                    <figure class="card-img">
+                        <img class="default-img" src="images/Kenya/ (7).webp" alt="Kenya" loading="lazy">
+                        <img class="hover-img" src="images/Kenya/ (2).webp"  alt="Kenya Hover" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="card-content">
+                    <h3 class="h3 card-title">  Departure  </h3>
+                    <small>
+                        ● Breakfast at hotel. <br>
+                        ● Transfer to JKIA Airport for departure. <br>
+                    </small>
+                </div>
+                <div class="card-price">
+                    <p class="price">Day 6 </p>
+                </div>
+            </div>
+        </li>
+      </ul>
+    </div>
+
+      <!--Package Inclusive -->
+        <div class="package-inclusive">
+            <h3 class="h3 package-inclusive-title">Package Includes</h3>
+            <ul class="package-inclusive-list">
+                ● Return Air Tickets (Calicut ↔ Nairobi). <br>
+                ● Visa fees & Travel insurance. <br>
+                ● 3 × Safari Landcruisers (4x4) with English-speaking driver guide. <br>
+                ● Accommodation in mentioned hotels/lodges. <br>
+                ● Full board meals (Breakfast, Lunch, Dinner). <br>
+                ● All park entry fees. <br>
+                ● Amboseli, Lake Nakuru & Masai Mara game drives. <br>
+                ● Return airport transfers. <br>
+                ● Mineral water during safari. <br>
+            </ul>
+        </div>
+        <!--Package Excludes -->
+        <div class="package-excludes">
+            <h3 class="h3 package-excludes-title">Package Excludes</h3>
+            <ul class="package-excludes-list">
+                ● Tourism Tax (if applicable). <br>
+                ● Personal expenses, shopping & tips (recommended USD 5 per person per day). <br>
+                ● Optional activities (hot air balloon, cultural shows). <br>
+                ● Midnight surcharge for transfers (23:00 – 07:00 hrs). <br>
+            </ul>
+        </div>
+
+        <!--Terms & Conditions-->
+        <div class="terms-conditions">
+            <h3 class="h3 terms-conditions-title">Terms & Conditions</h3>
+            <ul class="terms-conditions-list">
+                <li>Prices are per person based on double occupancy.</li>
+                <li>Itinerary is subject to change based on availability and weather conditions.</li>
+                <li>A non-refundable deposit is required to secure your booking.</li>
+                <li>Final payment is due 30 days before departure.</li>
+                <li>Travel insurance is highly recommended.</li>
+            </ul>
+        </div>
+
+
+    </div>
+  </section>
+    <br><br><br><br>
+    <!-- ===== BOOK NOW ===== -->
+    <section class="book-now">
+      <div class="container">
+        <h2 class="h2 book-now-title">Ready to Book Your Kenya Tour?</h2>
+        <p class="book-now-text">Contact us today to secure your spot and start your unforgettable journey in Kenya!</p>
+        <a href="contact.html" class="btn btn-primary">Book Now</a>
+      </div>
+    </section>
+    <br><br>
+  <!-- ===== FOOTER ===== -->
+<footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.jpg" alt="Tourly logo">
+          </a>
+
+          <h3 class="h3" style="color: white;">Let’s Start Planning Your Dream Trip </h3>
+          <p class="h4" >From curated getaways to fully custom experiences, we’re here to design the journey your soul craves. </p>
+
+        </div>
+
+        <div class="footer-contact">
+
+          <h4 class="contact-title">Contact Us</h4>
+
+          <p class="contact-text">
+            Feel free to contact and reach us !!
+          </p>
+
+          <ul>
+
+            <li class="contact-item">
+              <ion-icon name="call-outline"></ion-icon>
+
+              <a href="tel:+91 70258 73525" class="contact-link">+91 70258 73525 </a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="mail-outline"></ion-icon>
+
+              <a href="mailto:info@infizenadvwntures.com" class="contact-link">info@infizenadvwntures.com</a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="location-outline"></ion-icon>
+
+              <address>Door No. 238 , Engandiyur,Thrissur, Kerala - 680615</address>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-form">
+
+          <p class="form-text">
+            Subscribe our newsletter for more update & news !!
+          </p>
+
+          <form action="" class="form-wrapper">
+            <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
+
+            <button type="submit" class="btn btn-secondary">Subscribe</button>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2025 <a href="https://futurinx.com/">futurinx</a>. All rights reserved
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <a href="#" class="footer-bottom-link">Privacy Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link">Term & Condition</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link">FAQ</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
