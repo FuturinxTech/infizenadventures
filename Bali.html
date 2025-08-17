@@ -8,6 +8,49 @@
   <title>Bali Tour Packages | Infizen Adventures</title>
   <meta name="description" content="Infizen Adventures Bali tour packages offer luxury, family, wellness, and adventure travel experiences in Bali. Explore curated journeys across Ubud, Nusa Penida, Gili Islands, and more.">
   <link rel="stylesheet" href="./assets/css/package.css">
+  <style>
+  .banner {
+  background: url("/images/bg.webp") no-repeat center center/cover;
+  padding-block: calc(var(--section-padding) * 1.5);
+  color: var(--white);
+  text-align: center;
+}
+.banner-title {
+  font-size: var(--fs-1);
+  margin-bottom: 20px;
+}
+.banner-text {
+  font-size: var(--fs-5);
+  margin-bottom: 30px;
+}
+.banner .btn {
+  --padding: 12px 30px;
+  --fs-5: 16px;
+  background: var(--bright-navy-blue);
+  color: var(--white);
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.banner .btn:is(:hover, :focus) {
+  background: var(--united-nations-blue);
+  color: var(--white);
+}
+.banner .btn:is(:hover, :focus) { background: var(--united-nations-blue); }
+.banner .btn:is(:hover, :focus) { color: var(--white); }
+.banner .btn {
+  --padding: 12px 30px;
+  --fs-5: 16px;
+  background: var(--bright-navy-blue);
+  color: var(--white);
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.banner .btn:is(:hover, :focus) {
+  background: var(--united-nations-blue);
+  color: var(--white);
+}
+
+  </style>
 </head>
 
 <body id="top">
@@ -71,6 +114,15 @@
   </header>
 
 <br><br><br><br>
+  <!-- ===== BANNER ===== -->
+  <section class="banner">
+    <div class="container">
+      <h1 class="h1 banner-title">Explore the Enchanting Beauty of Bali</h1>
+      <p class="banner-text">From the lush rice terraces of Ubud to the stunning beaches of Nusa Penida, discover Bali's rich culture and breathtaking landscapes.</p>
+      <a href="#package" class="btn btn-secondary">Explore Packages</a>
+    </div>
+  </section>
+  <br><br><br><br>
 
   <!-- ===== PACKAGES ===== -->
   <section class="package" id="package">
@@ -307,4 +359,3 @@
 
 </body>
 </html>
-
