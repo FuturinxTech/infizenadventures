@@ -127,3 +127,107 @@ window.addEventListener("scroll", function () {
   });
 })();
 
+
+(function() {
+  const WHATSAPP_NUMBER = "917736333004"; // +91 77363 33004
+
+  function collectFormData() {
+    const form = document.querySelector(".tour-search-form");
+    if (!form) return null;
+
+    const data = new FormData(form);
+    const lines = [];
+    lines.push("🟢 New Tour Booking");
+    lines.push("---------------------------");
+
+    for (const [key, value] of data.entries()) {
+      if (!value) continue;
+      const label = key.replace(/[_-]/g, " ")
+                       .replace(/\b\w/g, c => c.toUpperCase());
+      lines.push(`${label}: ${value}`);
+    }
+
+    lines.push("---------------------------");
+    lines.push(`Page: ${document.title}`);
+    lines.push(`URL: ${location.href}`);
+    return lines.join("\n");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Attach to Book Now button
+    const bookBtn = document.querySelector(".btn-white");
+    if (bookBtn) {
+      bookBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        const text = collectFormData() || "🟢 New Tour Booking Request";
+        const encoded = encodeURIComponent(text);
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+        window.open(waUrl, "_blank");
+      });
+    }
+  });
+})();
+
+(function() {
+  const WHATSAPP_NUMBER = "917736333004"; // +91 77363 33004
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".contact-form");
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        const text = 
+`🟢 New Contact Message
+---------------------------
+Name: ${name}
+Email: ${email}
+Message: ${message}
+---------------------------
+Page: ${document.title}
+URL: ${location.href}`;
+
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+        window.open(waUrl, "_blank");
+      });
+    }
+  });
+})();
+
+(function() {
+  const WHATSAPP_NUMBER = "917736333004"; // +91 77363 33004
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".booking-form");
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("bname").value.trim();
+        const email = document.getElementById("bemail").value.trim();
+        const destination = document.getElementById("destination").value.trim();
+        const travelDate = document.getElementById("travel-date").value.trim();
+        const message = document.getElementById("bmessage").value.trim();
+
+        const text = 
+`🟢 New Booking Inquiry
+---------------------------
+Name: ${name}
+Email: ${email}
+Destination: ${destination}
+Travel Date: ${travelDate}
+Additional Info: ${message}
+---------------------------
+Page: ${document.title}
+URL: ${location.href}`;
+
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+        window.open(waUrl, "_blank");
+      });
+    }
+  });
+})();
