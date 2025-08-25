@@ -231,3 +231,57 @@ URL: ${location.href}`;
     }
   });
 })();
+
+  document.querySelectorAll(".book-package").forEach(button => {
+    button.addEventListener("click", function () {
+      const packageName = this.getAttribute("data-package");
+      const packagePrice = this.getAttribute("data-price");
+      const phone = "917736333004"; // WhatsApp number (+91 without +)
+      
+      const message = `Hello, I am interested in the package:\n\n*${packageName}*\nPrice: ${packagePrice}\n\nPlease share more details.`;
+      
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    });
+  });
+
+  
+(function() {
+  const WHATSAPP_NUMBER = "917736333004"; // +91 77363 33004
+
+  function collectFormData() {
+    const form = document.querySelector(".tour-search-form");
+    if (!form) return null;
+
+    const data = new FormData(form);
+    const lines = [];
+    lines.push("🟢 New Tour Booking");
+    lines.push("---------------------------");
+
+    for (const [key, value] of data.entries()) {
+      if (!value) continue;
+      const label = key.replace(/[_-]/g, " ")
+                       .replace(/\b\w/g, c => c.toUpperCase());
+      lines.push(`${label}: ${value}`);
+    }
+
+    lines.push("---------------------------");
+    lines.push(`Page: ${document.title}`);
+    lines.push(`URL: ${location.href}`);
+    return lines.join("\n");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Attach to Book Now button
+    const bookBtn = document.querySelector(".btn-primary");
+    if (bookBtn) {
+      bookBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        const text = collectFormData() || "🟢 New Tour Booking Request";
+        const encoded = encodeURIComponent(text);
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+        window.open(waUrl, "_blank");
+      });
+    }
+  });
+})();
