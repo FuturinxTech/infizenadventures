@@ -89,3 +89,41 @@ window.addEventListener("scroll", function () {
     });
   });
 
+
+
+(function() {
+  const WHATSAPP_NUMBER = "917736333004"; // +91 77363 33004
+
+  function formToWhatsAppText(form) {
+    const data = new FormData(form);
+    const lines = [];
+    lines.push("🟢 New Tour Enquiry");
+    lines.push("---------------------------");
+
+    for (const [key, value] of data.entries()) {
+      if (!value) continue;
+      const label = key.replace(/[_-]/g, " ")
+                       .replace(/\b\w/g, c => c.toUpperCase());
+      lines.push(`${label}: ${value}`);
+    }
+
+    lines.push("---------------------------");
+    lines.push(`Page: ${document.title}`);
+    lines.push(`URL: ${location.href}`);
+    return lines.join("\n");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".tour-search-form");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const text = formToWhatsAppText(form);
+      const encoded = encodeURIComponent(text);
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+      window.open(waUrl, "_blank");
+    });
+  });
+})();
+
