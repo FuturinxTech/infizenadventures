@@ -459,7 +459,27 @@
       <div class="container">
         <h2 class="h2 book-now-title">Ready to Book Your Malaysia Tour?</h2>
         <p class="book-now-text">Contact us today to secure your spot and start your unforgettable journey in Malaysia!</p>
-        <a href="contact.html" class="btn btn-primary">Book Now</a>
+        <div class="book-now-cta">
+          <button id="whatsappBook" class="button" type="button" aria-label="Contact on WhatsApp">
+            Book via WhatsApp
+          </button>
+        </div>
+
+        <script>
+          // Replace phone number if needed (country code + number, no plus or spaces)
+          const whatsappPhone = '917025873525';
+
+          document.getElementById('whatsappBook').addEventListener('click', () => {
+            const packageName = 'Malaysia Tour Package - 4 Days / 3 Nights';
+            const timestamp = new Date().toLocaleString();
+            const message = `Hello Infizen Adventures,
+        I would like to book the ${packageName}.
+        Click time: ${timestamp}`;
+
+            const url = 'https://wa.me/' + whatsappPhone + '?text=' + encodeURIComponent(message);
+            window.open(url, '_blank', 'noopener');
+          });
+        </script>
       </div>
     </section>
     <br><br>
