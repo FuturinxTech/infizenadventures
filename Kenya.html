@@ -312,173 +312,10 @@
         opacity: 1 !important;
     }
 }
-/* Book Now — animated, polished, mobile-friendly */
-.book-now {
-    --bg-start: #072a63;
-    --bg-end: #0b57d0;
-    --accent: #ffd166;
-    --glass: rgba(255,255,255,0.06);
 
-    position: relative;
-    overflow: hidden;
-    margin: 36px auto;
-    padding: 44px 30px;
-    border-radius: 18px;
-    color: #fff;
-    background: linear-gradient(120deg, var(--bg-start) 0%, var(--bg-end) 60%);
-    box-shadow: 0 10px 40px rgba(6,30,80,0.45), inset 0 1px 0 rgba(255,255,255,0.03);
-    backdrop-filter: blur(6px);
-}
 
-/* decorative animated blobs */
-.book-now::before,
-.book-now::after {
-    content: "";
-    position: absolute;
-    inset: auto -10% -20% auto;
-    width: 360px;
-    height: 360px;
-    border-radius: 50%;
-    filter: blur(34px);
-    opacity: 0.18;
-    transform: translate3d(0,0,0);
-    pointer-events: none;
-    will-change: transform, opacity;
-}
-.book-now::before {
-    background: radial-gradient(circle at 30% 30%, rgba(255,217,128,0.95), rgba(255,209,120,0.25) 30%, transparent 60%);
-    left: -6%;
-    top: -10%;
-    animation: floatSlow 9s ease-in-out infinite;
-}
-.book-now::after {
-    background: radial-gradient(circle at 70% 70%, rgba(102,204,255,0.95), rgba(102,195,255,0.18) 30%, transparent 60%);
-    right: -16%;
-    bottom: -18%;
-    width: 420px;
-    height: 420px;
-    animation: floatSlow 11s ease-in-out reverse infinite;
-}
 
-/* inner layout */
-.book-now .container {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    position: relative; /* keep above pseudo elements */
-    z-index: 2;
-}
 
-/* Title + text */
-.book-now-title {
-    margin: 0;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    font-size: clamp(1.25rem, 2.4vw, 1.9rem);
-    line-height: 1.05;
-    text-shadow: 0 6px 20px rgba(2,8,40,0.45);
-}
-.book-now-text {
-    margin: 6px 0 0;
-    color: rgba(255,255,255,0.92);
-    font-weight: 500;
-    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
-    max-width: 720px;
-    opacity: 0.97;
-}
-
-/* CTA button */
-.book-now .btn {
-    --padding: 12px 20px;
-    background: linear-gradient(90deg, #ffd166 0%, #ff9f1c 100%);
-    color: #072a63;
-    font-weight: 800;
-    border-radius: 999px;
-    padding: 12px 26px;
-    box-shadow: 0 10px 30px rgba(255,159,28,0.18);
-    border: none;
-    cursor: pointer;
-    transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s ease, opacity .12s ease;
-    display: inline-flex;
-    gap: 10px;
-    align-items: center;
-    white-space: nowrap;
-    transform-origin: center;
-    min-width: 160px;
-}
-.book-now .btn:hover,
-.book-now .btn:focus {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 18px 48px rgba(255,159,28,0.22);
-    text-decoration: none;
-}
-.book-now .btn:active { transform: translateY(-3px) scale(1.01); }
-.book-now .btn:focus-visible { outline: 3px solid rgba(255,223,120,0.22); outline-offset: 4px; border-radius: 999px; }
-
-/* subtle entrance animation */
-.book-now {
-    opacity: 0;
-    transform: translateY(18px) scale(.995);
-    animation: revealUp 640ms cubic-bezier(.22,.9,.32,1) forwards;
-    animation-delay: 160ms;
-}
-
-/* small animated highlight under title */
-.book-now-title::after {
-    content: "";
-    display: block;
-    height: 6px;
-    width: 72px;
-    margin-top: 12px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06));
-    transform-origin: left center;
-    animation: pulseLine 1600ms ease-in-out infinite;
-    opacity: 0.9;
-}
-
-/* Responsive: stack on mobile */
-@media (max-width: 760px) {
-    .book-now {
-        padding: 28px 18px;
-        border-radius: 12px;
-    }
-    .book-now .container { flex-direction: column; align-items: center; text-align: center; }
-    .book-now-title { font-size: 1.35rem; }
-    .book-now-text { margin-bottom: 14px; max-width: 100%; }
-    .book-now .btn { width: 100%; max-width: 420px; justify-content: center; font-size: 1rem; min-width: auto; }
-    .book-now::before, .book-now::after { display: none; } /* keep mobile light & legible */
-}
-
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-    .book-now::before,
-    .book-now::after,
-    .book-now,
-    .book-now-title::after,
-    .book-now .btn {
-        animation: none !important;
-        transition: none !important;
-    }
-}
-
-/* Keyframes */
-@keyframes floatSlow {
-    0% { transform: translateY(0) translateX(0) scale(1); opacity: .18; }
-    50% { transform: translateY(-22px) translateX(8px) scale(1.06); opacity: .22; }
-    100% { transform: translateY(0) translateX(0) scale(1); opacity: .18; }
-}
-@keyframes revealUp {
-    from { opacity: 0; transform: translateY(18px) scale(.995); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-@keyframes pulseLine {
-    0% { transform: scaleX(.88); opacity: .7; }
-    50% { transform: scaleX(1.02); opacity: 1; }
-    100% { transform: scaleX(.88); opacity: .7; }
-}
 
   </style>
   <link rel="stylesheet" href="">
@@ -790,12 +627,61 @@
   </section>
     <br><br><br><br>
     <!-- ===== BOOK NOW ===== -->
-    <section class="book-now">
-      <div class="container">
-        <h2 class="h2 book-now-title">Ready to Book Your Kenya Tour?</h2>
-        <p class="book-now-text">Contact us today to secure your spot and start your unforgettable journey in Kenya!</p>
-        <a href="contact.html" class="btn btn-primary">Book Now</a>
+    <!-- ===== BOOK NOW (WhatsApp) ===== -->
+    <section id="book-now" class="book-now" aria-label="Book Now">
+      <div class="container" style="text-align:center; padding:28px 12px;">
+        <h3 class="h3" style="margin-bottom:8px;">Ready to Book?</h3>
+        <p style="margin:0 0 16px;color:var(--muted,#666)">Tap the button to message us on WhatsApp — we'll get back to you fast.</p>
+
+        <button id="whatsappBtn" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;font-weight:700;">
+          Book Now
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" style="transform:translateY(1px);">
+            <path d="M20.5 3.5H3.5v13l3-1 1 1 1-1 2 1 7-4V3.5z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <p id="whatsappNote" style="margin-top:12px;font-size:0.9rem;color:var(--muted,#666)"></p>
       </div>
+
+      <script>
+        (function () {
+          // Configure target phone and default package name
+          var phone = "917025873525"; // international format without '+' or spaces
+          var packageName = "Kenya Safari Expedition — 6 Days / 5 Nights";
+
+          var btn = document.getElementById('whatsappBtn');
+          var note = document.getElementById('whatsappNote');
+
+          function formatLocalDateTime(d) {
+            // Simple local timestamp: YYYY-MM-DD HH:MM
+            var y = d.getFullYear();
+            var m = String(d.getMonth() + 1).padStart(2, '0');
+            var day = String(d.getDate()).padStart(2, '0');
+            var hh = String(d.getHours()).padStart(2, '0');
+            var mm = String(d.getMinutes()).padStart(2, '0');
+            return y + "-" + m + "-" + day + " " + hh + ":" + mm;
+          }
+
+          function openWhatsApp() {
+            var now = new Date();
+            var timestamp = formatLocalDateTime(now);
+            // Build a helpful prefilled message including timestamp
+            var message = "Hello Infizen Adventures,%0A%0AI am interested in the following package:%0A" +
+                          encodeURIComponent(packageName) +
+                          "%0A%0APlease contact me. Clicked at: " + encodeURIComponent(timestamp) +
+                          "%0A%0ARegards,";
+            // Use wa.me link which works on mobile & desktop (WhatsApp Web)
+            var url = "https://wa.me/" + phone + "?text=" + message;
+
+            // For analytics/UX: show a short note before redirecting
+            note.textContent = "Opening WhatsApp... (" + timestamp + ")";
+            // open in new tab/window
+            window.open(url, '_blank', 'noopener,noreferrer');
+          }
+
+          btn.addEventListener('click', openWhatsApp);
+        })();
+      </script>
     </section>
     <br><br>
   <!-- ===== FOOTER ===== -->
